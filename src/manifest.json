@@ -1,0 +1,23 @@
+{
+  "name": "Jira AI Comment Helper",
+  "description": "Reads Jira stories and drafts comments with OpenAI.",
+  "version": "0.1.1",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": [
+    "https://pariplayltd.atlassian.net/*",
+    "https://api.openai.com/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; connect-src 'self' https://api.openai.com https://pariplayltd.atlassian.net; img-src 'self' data:; style-src 'self'"
+  },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://pariplayltd.atlassian.net/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html"
+}

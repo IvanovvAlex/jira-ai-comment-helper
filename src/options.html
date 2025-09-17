@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Jira AI Comment Helper — Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="card">
+      <div class="header">
+        <div class="logo">AI</div>
+        <div>
+          <h1>Jira AI Comment Helper</h1>
+          <div class="subtitle">
+            Configure your OpenAI access and default model.
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label for="myName">Your Name</label>
+          <input
+            id="myName"
+            type="text"
+            value="Alex Ivanov"
+            placeholder="e.g., Alex Ivanov"
+            autocomplete="off"
+          />
+          <div class="hint">Used to detect questions addressed to you.</div>
+        </div>
+
+        <div class="field">
+          <label for="key">OpenAI API Key</label>
+          <input
+            id="key"
+            type="password"
+            placeholder="sk-********************************"
+            autocomplete="off"
+          />
+          <div class="hint">
+            Find it in OpenAI → Profile → <em>View API keys</em>. Keep it
+            private.
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="model">Default Model</label>
+          <input
+            id="model"
+            type="text"
+            value="gpt-5"
+            placeholder="e.g., gpt-5 or gpt-5-mini"
+          />
+          <div class="hint">
+            Use a model your account has access to. You can change this anytime.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="footer">
+        <div class="row">
+          <button id="saveAll" class="btn">Save settings</button>
+          <span class="badge">Manifest V3</span>
+        </div>
+        <div class="hint">
+          Your settings are stored locally via <code>chrome.storage.sync</code>.
+        </div>
+      </div>
+    </main>
+
+    <!-- External script only (MV3 CSP compliant) -->
+    <script src="options.js" defer></script>
+  </body>
+</html>
